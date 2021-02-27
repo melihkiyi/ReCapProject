@@ -22,7 +22,7 @@ namespace DataAccess.Concrete.EntityFrameWork
                              on p.BrandId equals b.BrandId
                              join c in context.Colors
                              on p.ColorId equals c.ColorId
-                             select new CarDetailDto { Id = p.Id, BrandId = p.BrandId, BrandName = b.BrandName, ColorId = p.ColorId, ColorName=c.ColorName,DailyPrice=p.DailyPrice };
+                             select new CarDetailDto { CarId = p.CarId, BrandId = p.BrandId, BrandName = b.BrandName, ColorId = p.ColorId, ColorName=c.ColorName,DailyPrice=p.DailyPrice };
                 return result.ToList();
             }
         }

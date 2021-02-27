@@ -12,7 +12,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
 
-            CarDeleteTest();
+            //CarDeleteTest();
             //CarAddTest();
             //CarDetailsTest();
         }
@@ -20,7 +20,7 @@ namespace ConsoleUI
         private static void CarDeleteTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            var result = carManager.Delete(new Car { Id = 23 });
+            var result = carManager.Delete(new Car { CarId = 23 });
             if (result.Success==true)
             {
                 Console.WriteLine(result.Message);
@@ -34,7 +34,7 @@ namespace ConsoleUI
         private static void CarAddTest()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            var result =carManager.Add(new Car { Id=23,BrandId = 3, ColorId = 4, ModelYear = 1999, DailyPrice = 520, Description = "Manual" });
+            var result =carManager.Add(new Car {CarId=23,BrandId = 3, ColorId = 4, ModelYear = 1999, DailyPrice = 520, Description = "Manual" });
             if (result.Success == true)
             {
                 Console.WriteLine(result.Message);

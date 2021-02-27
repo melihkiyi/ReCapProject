@@ -16,12 +16,12 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{Id=1, BrandId=1, ColorId=1, ModelYear=2010, DailyPrice=80000, Description="Automatic"},
-                new Car{Id=2, BrandId=1, ColorId=2, ModelYear=2005, DailyPrice=50000, Description="Manual"},
-                new Car{Id=3, BrandId=2, ColorId=3, ModelYear=2020, DailyPrice=100000, Description="Automatic"},
-                new Car{Id=4, BrandId=2, ColorId=1, ModelYear=2012, DailyPrice=87500, Description="Manual"},
-                new Car{Id=5, BrandId=3, ColorId=3, ModelYear=1999, DailyPrice=27000, Description="Manual"},
-                new Car{Id=1, BrandId=3, ColorId=2, ModelYear=2021, DailyPrice=320000, Description="Automatic"},
+                new Car{CarId=1, BrandId=1, ColorId=1, ModelYear=2010, DailyPrice=80000, Description="Automatic"},
+                new Car{CarId=2, BrandId=1, ColorId=2, ModelYear=2005, DailyPrice=50000, Description="Manual"},
+                new Car{CarId=3, BrandId=2, ColorId=3, ModelYear=2020, DailyPrice=100000, Description="Automatic"},
+                new Car{CarId=4, BrandId=2, ColorId=1, ModelYear=2012, DailyPrice=87500, Description="Manual"},
+                new Car{CarId=5, BrandId=3, ColorId=3, ModelYear=1999, DailyPrice=27000, Description="Manual"},
+                new Car{CarId=1, BrandId=3, ColorId=2, ModelYear=2021, DailyPrice=320000, Description="Automatic"},
             };
         }
         public void Add(Car car)
@@ -31,7 +31,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Delete(Car car)
         {
-            Car carDelete = _cars.SingleOrDefault(p => p.Id == car.Id);
+            Car carDelete = _cars.SingleOrDefault(p => p.CarId == car.CarId);
             _cars.Remove(carDelete);
         }
 
@@ -52,7 +52,7 @@ namespace DataAccess.Concrete.InMemory
 
         public List<Car> GetById(int Id)
         {
-            return _cars.Where(p => p.Id == Id).ToList();
+            return _cars.Where(p => p.CarId == Id).ToList();
         }
 
         public List<CarDetailDto> GetCarDetails()
@@ -62,7 +62,7 @@ namespace DataAccess.Concrete.InMemory
 
         public void Update(Car car)
         {
-            Car carUpdate = _cars.SingleOrDefault(p => p.Id == car.Id);
+            Car carUpdate = _cars.SingleOrDefault(p => p.CarId == car.CarId);
             carUpdate.BrandId = car.BrandId;
             carUpdate.ColorId = car.ColorId;
             carUpdate.ModelYear = car.ModelYear;
